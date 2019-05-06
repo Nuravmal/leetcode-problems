@@ -24,3 +24,8 @@ public:
         
         
         concept: two elements are added and then if ==target returned
+        alternative 
+       loop(
+       num[j]=target-num[i]
+        
+)
