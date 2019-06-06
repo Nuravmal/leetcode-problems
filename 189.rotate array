@@ -1,0 +1,20 @@
+//(rotating array by one) then rotating already rotatted array by given times
+
+
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int temp=0;
+        int last;
+        for(int j=0;j<k;j++)
+        {
+        last=nums[nums.size()-1];    
+        
+for(int i=0;i<nums.size();i++)
+{
+    temp= nums[i];
+    nums[i]=last;
+        last=temp;
+}}
+        }};
