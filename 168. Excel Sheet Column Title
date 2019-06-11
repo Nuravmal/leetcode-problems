@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string s;
+        while(n>0)
+        {n--;
+           s=(char)(n%26+'A')+s;            // A-Z~ 0-25 and 26 te change hoju 
+         n=n/26;                                // if n is bogger than 26 then n >0 and loop will run again 
+         
+            
+        }
+        
+    return s;}
+};
+  // here s=()+s order matters as its a string concatenation
+
+
