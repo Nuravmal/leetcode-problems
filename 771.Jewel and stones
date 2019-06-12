@@ -1,0 +1,13 @@
+//using set and for loop(auto)
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        set<char>s1;
+        int res=0;
+        for(auto c:J)
+           s1.insert(c);
+        for(auto d :S)
+            if(s1.count(d))
+        res++;
+  return res;  }
+};
