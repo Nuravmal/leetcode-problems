@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+    
+        set<int>sets1;int p;
+        
+    
+        for(int i=0;i<nums.size();i++)
+        {
+            sets1.insert(nums[i]);
+        }
+        for(int i=0;i<nums.size()+1;i++)
+        {
+            if(sets1.count(i)==0) return i;}
+        return -1;}
+};
