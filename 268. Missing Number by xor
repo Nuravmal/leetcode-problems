@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int mis=nums.size();
+        for(int i=0;i<nums.size();i++)
+        {mis^=nums[i]^i;
+            
+        }
+        return mis;
+    }
+};
+
+
+
+
+logic:
+every array having 0 to n-1 elements in which any one value from 0 to n is missing
+if we do xor of all the values then only one value that is missing will be left because a^a =0;
+there that will be require number
