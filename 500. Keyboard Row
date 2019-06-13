@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+    vector<string>v(3);
+        v[0]="qwertyuiopQWERTYUIOP"
+;v[1]="asdfghjklASDFGHJKL";v[2]="zxcvbnmZXCVBNM";
+        vector<string>outp;
+        for(int i=0,j;i<words.size();i++)
+        {int iset=2;
+         if(v[0].find(words[i][0])!=string::npos) iset=0;
+         if(v[1].find(words[i][0])!=string::npos) iset=1;            
+        for(j=0;j<words[i].size();j++)
+        {
+            if(v[iset].find(words[i][j])==string::npos)break;
+        }
+         if(j==words[i].size()) 
+             outp.push_back(words[i]);
+        }
+        
+        
+        
+      return outp;  
+        
+    
+    }
+        
+    }
+;
+//logic
+at first we are assigning rows of keyboard to 3 different string in an vector string array
+then at first we check if our first row of keyboard contain first alphabet of words[0]
+if yes that means whole string of words must lie in first row so we take index number 0
+similary for other;
+then a j loop will check if other alphabets of that word also lie in same row and whereever it will found unrequire alphabet it will break the loop
+hence value of j will be less if mismatches ..
