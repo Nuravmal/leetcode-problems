@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char>S1;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='('||s[i]=='{'||s[i]=='[') // it will check opening brackets
+            { S1.push(s[i]);
+             continue;}       continue statement will skip next lines of codes and moves to next iteration
+        
+        if(S1.empty())                if no opening bracket that means unbalanced
+            return false;
+            
+        char ch;
+            if(s[i]==')')                               
+            {
+                ch=S1.top();
+                S1.pop();
+                if(ch=='{'||ch=='[')
+                    return false;
+                
+            }
+            if(s[i]=='}')
+            {
+                ch=S1.top();
+                S1.pop();
+                if(ch=='('||ch=='[')
+                    return false;
+        }
+    
+                    if(s[i]==']')
+            {
+                ch=S1.top();
+                S1.pop();
+                if(ch=='{'||ch=='(')
+                    return false;
+        
+        }
+        }
+        return (S1.empty());
+}};
