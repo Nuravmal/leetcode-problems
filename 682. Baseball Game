@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int calPoints(vector<string>& ops) {
+        stack<int>stacks;
+        int ans=0;
+        for(auto i:ops)
+        {
+         if(i=="C")
+         {ans-=stacks.top();
+        stacks.pop();        
+        }
+            else if(i=="D")
+            {
+                stacks.push(2*stacks.top());
+                ans+= stacks.top();
+            }
+            else if(i=="+")
+            {
+                int a=stacks.top();
+                stacks.pop();
+                int b=stacks.top();
+                stacks.push(a);
+                ans+=(a+b);
+                stacks.push(a+b);
+            }
+        else
+        {
+            int n=stoi(i);
+            ans+=n;
+            stacks.push(n);
+        }}
+        
+    return ans;}
+};
