@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string removeDuplicates(string S) {
+        
+        
+        vector<char> chars;
+        
+     for(auto ch:S)
+     {
+         if(!chars.empty() && (chars.back()==ch))
+             chars.pop_back();
+         else
+             chars.push_back(ch);
+     }
+        return string(chars.begin(),chars.end());
+    }};
