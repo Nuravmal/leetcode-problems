@@ -1,0 +1,21 @@
+class Solution {
+public:void duplicateZeros(vector<int>& arr) {
+        int i=-1,j=0;
+        while(j<arr.size())  {
+            if(arr[++i]==0)
+                ++j;
+            ++j;
+		}		// all the elements right to i will be shifted away and not occur in the array
+        bool shift0away= j==arr.size()+1;   // indicates the last duplicated 0 is shifted away, such like test case [1,2,3,0], otherwise j==arr.size()
+        j=arr.size()-1;
+        if(shift0away) 
+            arr[j--]=arr[i--];  // copy 0
+            
+        while(i<j)  {
+            arr[j--]=arr[i];    // move j left 1 step due to arr[i]
+            if(arr[i]==0)
+                arr[j--]=0; // move j left 1 step more due to the duplicate zero
+            --i;    //  move i left 1 step
+        }
+    }};
+	
