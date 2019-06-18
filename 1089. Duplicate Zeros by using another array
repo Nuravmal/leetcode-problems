@@ -1,0 +1,16 @@
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) {
+        vector<int>arr2(arr.size());
+        int i=0,j=0;
+        while(i<arr.size()&&j<arr2.size())
+        {arr2[j++]=arr[i];
+         if(arr[i]==0&&j<arr2.size())
+         arr2[j++]=0;
+         
+         i++;
+         
+        }
+        arr=arr2;
+    }
+};
