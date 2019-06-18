@@ -1,0 +1,29 @@
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        map<char,int>   mymap;
+        for(int i=0;i<s.size();i++)
+            mymap[s[i]]++;
+        
+        vector<int> arr;
+        for(auto it=mymap.begin();it!=mymap.end();it++)
+           arr.push_back(it->second);
+        sort(arr.begin(),arr.end(),greater<int>());
+        string res;
+        for(int i=0;i<arr.size();i++)
+        {
+            for(auto it=mymap.begin();it!=mymap.end();it++)
+            {
+                if(arr[i]==it->second)
+                {while(it->second>0)
+                {
+                    res.push_back(it->first);
+                    it->second--;
+                } 
+                    
+                }
+            }
+        }
+        return res;
+    }};
