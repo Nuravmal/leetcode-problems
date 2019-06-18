@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        map<int,int>m1;
+        for(auto i:nums)
+        m1[i]++;
+        vector<int>v;
+        map<int,int>::iterator it;
+        for(it=m1.begin();it!=m1.end();it++)
+          v.push_back(it->second);
+        vector<int>res;
+    sort(v.begin(),v.end(),greater<int>());
+        for(int i=0;i<k;i++)
+        {
+            for(auto it=m1.begin();it!=m1.end();it++)
+            {
+                if(v[i]==(it->second))
+                {res.push_back(it->first);
+                it->second=0;
+                goto here;}
+            }
+        here:;}
+        return res;
+    }};
+        
