@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        vector<int>res;
+        if(p.length() > s.length())
+            return res;
+        
+        vector<int>tmp(26,0),ref(26,0);
+        int p_size = p.size(), s_size = s.size(),i;
+        for(i = 0; i < p_size; i++)
+        {
+            tmp[p[i]-'a']++;
+            ref[s[i]-'a']++;
+        }
+        if(tmp == ref)
+            res.push_back(0);
+        
+        for(i = p_size; i < s_size; i++)
+        {
+            ref[s[i]-'a']++; //Increment the right side
+            ref[s[i-p_size]-'a']--; //Decrement from the left side
+            
+            if(tmp == ref)
+                res.push_back(i-p_size +1);
+        }
+        return res;   
+    }
+};
