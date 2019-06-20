@@ -1,0 +1,52 @@
+//M1
+//tarting with empty array. Because row i + 1 is longer than row i by 1, and the last number in each row is always 1.
+
+So suppose we are just done with row i, when when proceed with row i + 1:
+
+We need to push a "1" to the current array first we have (with row i's result),
+
+Then update index 1 through i. Observing that first number of array always will be 1 too, which doesn't need to be updated since we already did that when we deal with row 0 (last and first index are both 0 for row 0).
+
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<int>row;
+        vector<vector<int>>res;
+        for(int i=0;i<numRows;i++)
+        {
+            row.push_back(1);
+            for(int j=i-1;j>0;j--)
+            {
+                row[j]=row[j]+row[j-1];
+            }
+                
+                
+                
+                res.push_back(row);
+        }
+        
+    return res;}
+};
+
+
+
+//M2
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<int>row;
+        vector<vector<int>>res;
+        
+    for(int i=0;i<numRows;i++)
+    {
+        row.push_back(1);
+        int preval=1;
+    for(int j=1;j<row.size()-1;j++)
+    {
+        int newval=row[j];
+        row[j]+=preval;
+        preval=newval;
+    }
+        res.push_back(row);
+    }
+    return res;}};
