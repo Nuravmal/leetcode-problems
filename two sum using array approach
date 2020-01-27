@@ -1,0 +1,18 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        if(head==NULL)
+            return head;
+        vector<ListNode*>res;
+        
+        while(head!=NULL)
+        {
+            res.push_back(head);
+            head=head->next;
+        }
+        
+        return res[(res.size())/2];
+        
+        
+    }
+};
