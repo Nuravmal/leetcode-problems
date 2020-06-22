@@ -23,3 +23,27 @@ public:
         }
     return true;}
 };
+
+
+M2- using sets
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        set<ListNode*>nodecheck;
+        ListNode*temp=head;
+        while(temp!=NULL)
+        {
+            if(nodecheck.find(temp)!=nodecheck.end())
+               {return true;
+                                  }
+            else
+            {
+                nodecheck.insert(temp);
+            }
+            temp=temp->next;
+        }
+        
+        return false;
+    }
+};
